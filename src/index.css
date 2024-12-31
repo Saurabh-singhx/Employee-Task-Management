@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* #taskbar::-webkit-scrollbar{
+    display: none;
+} */
+body{
+    height: screen;
+    background-color: #1e293b;
+}
