@@ -1,8 +1,13 @@
-# React + Vite
+## About
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a task management system designed to streamline task assignments and tracking for both administrators and employees. Key features include:
 
-Currently, two official plugins are available:
+- **Admin Dashboard**: Allows administrators to create, assign, and manage tasks efficiently.
+- **Employee Dashboard**: Enables employees to view their assigned tasks and update task statuses in real time.
+- **Task Categories and Status Tracking**: Tasks can be categorized, and their progress (completed, failed, or active) can be tracked.
+- **Data Persistence**: Utilizes LocalStorage to save and retrieve task and user data.
+- **Responsive Design**: Built with React and Tailwind CSS for a seamless experience across all devices.
+- **Interactive Features**: Real-time updates to task status and user data for an intuitive user experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project showcases the use of modern front-end development technologies and focuses on building an interactive and user-friendly application.
+
