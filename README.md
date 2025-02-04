@@ -11,3 +11,6 @@ This project is a task management system designed to streamline task assignments
 
 This project showcases the use of modern front-end development technologies and focuses on building an interactive and user-friendly application.
 
+## How to Use
+- **Admin Password**:admin@mail.com
+- - **Employee Password**:employee1@example.com
