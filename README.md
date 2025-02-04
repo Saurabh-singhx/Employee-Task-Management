@@ -13,4 +13,4 @@ This project showcases the use of modern front-end development technologies and 
 
 ## How to Use
 - **Admin Password**:admin@mail.com
-- - **Employee Password**:employee1@example.com
+- **Employee Password**:employee1@example.com
