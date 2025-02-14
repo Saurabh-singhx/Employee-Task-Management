@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import Aalltask from './Aalltask';
+import React, { useState } from 'react';
 
 function Taskcreate() {
     const [taskTitle, setTaskTitle] = useState('');
@@ -7,14 +6,6 @@ function Taskcreate() {
     const [asignTo, setasignTo] = useState('');
     const [category, settaskCategory] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
-    
-    const [employees, setEmployees] = useState([]);
-
-    // Fetch employees from localStorage on component mount or when employees data changes
-    useEffect(() => {
-        const data = JSON.parse(localStorage.getItem('employees')) || [];
-        setEmployees(data);
-    }, []); // Only runs once when the component mounts
 
     // Handle task creation
     const handleSubmit = (e) => {
@@ -43,10 +34,7 @@ function Taskcreate() {
         if (employeeIndex !== -1) {
             // Add the new task to the corresponding employee
             data[employeeIndex].tasks.push(newTask);
-            // Update localStorage with the new data
             localStorage.setItem('employees', JSON.stringify(data));
-            // Refetch employees data after adding the task
-            setEmployees([...data]);  // Trigger component re-render with updated data
         } else {
             alert('Employee not found!');
         }

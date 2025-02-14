@@ -6,7 +6,7 @@ function Header(props) {
     // localStorage.clear()
     localStorage.setItem('loggedinuser','');
     props.changeUser('')
-    // window.location.reload();
+    window.location.reload();
   }
   const userName = props.data?.name || 'Admin';
   return (
