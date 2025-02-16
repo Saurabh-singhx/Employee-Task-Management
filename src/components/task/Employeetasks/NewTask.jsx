@@ -7,8 +7,8 @@ function NewTask(props) {
   const [checkClick, setcheckClick] = useState(false)
   const employeesData = JSON.parse(localStorage.getItem("employees"))
   const index = props.val.id;
-  console.log(props);
-  console.log(employeesData[index - 1]);
+  // console.log(props);
+  // console.log(employeesData[index - 1]);
 
   const handleActiveTask = (e) => {
     setcheckClick(true)
@@ -24,6 +24,7 @@ function NewTask(props) {
     });
     employeesData[index - 1].taskNumbers.accepted += 1;
     employeesData[index - 1].taskNumbers.newTask -= 1;
+    props.settaskdata({ accepted: (employeesData[index - 1].taskNumbers.accepted), completed: employeesData[index - 1].taskNumbers.completed, failed: employeesData[index - 1].taskNumbers.failed, newTask: employeesData[index - 1].taskNumbers.newTask })
     localStorage.setItem('employees', JSON.stringify(employeesData));
     // window.location.reload();
   }

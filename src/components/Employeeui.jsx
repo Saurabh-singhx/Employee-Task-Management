@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Employeeui({data}) {
+export default function Employeeui({data,Taskdata}) {
     
   return (
 
@@ -8,19 +8,19 @@ export default function Employeeui({data}) {
             
           <div className='mt-4 flex gap-4 py-2 h-80'>
               <div className='bg-cyan-400 rounded-md w-1/4 p-3 h-28'>
-                  <p className='text-white font-semibold'>{data.taskNumbers.newTask}</p>
+                  <p className='text-white font-semibold'>{Taskdata.newTask}</p>
                   <p className='text-amber-200'>New Task</p>
               </div>
               <div className='bg-yellow-400 rounded-md w-1/4 p-3 h-28'>
-                  <p className='text-white font-semibold'>{data.taskNumbers.accepted}</p>
+                  <p className='text-white font-semibold'>{Taskdata.accepted}</p>
                   <p className='text-amber-200'>Active Task</p>
               </div>
               <div className='bg-green-400 rounded-md w-1/4 p-3 h-28'>
-                  <p className='text-white font-semibold'>{data.taskNumbers.completed}</p>
+                  <p className='text-white font-semibold'>{Taskdata.completed}</p>
                   <p className='text-amber-200'>completed Task</p>
               </div>
               <div className='bg-red-300 rounded-md w-1/4 p-3 h-28'>
-                  <p className='text-white font-semibold'>{data.taskNumbers.failed}</p>
+                  <p className='text-white font-semibold'>{Taskdata.failed}</p>
                   <p className='text-amber-200'>failed Task</p>
               </div>
           </div>

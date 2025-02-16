@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 function ActiveTask(props) {
+  console.log(props.settaskdata)
   const [checkClick, setCheckClick] = useState(false);
   const [checkFail, setCheckFail] = useState(false);
   const employeesData = JSON.parse(localStorage.getItem("employees"));
@@ -16,6 +17,7 @@ function ActiveTask(props) {
     });
     employeesData[index - 1].taskNumbers.completed += 1;
     employeesData[index - 1].taskNumbers.accepted -= 1;
+    props.settaskdata({accepted:(employeesData[index - 1].taskNumbers.accepted),completed:employeesData[index - 1].taskNumbers.completed,failed:employeesData[index - 1].taskNumbers.failed,newTask:employeesData[index - 1].taskNumbers.newTask})
     localStorage.setItem('employees', JSON.stringify(employeesData));
   };
 
@@ -30,6 +32,7 @@ function ActiveTask(props) {
     });
     employeesData[index - 1].taskNumbers.failed += 1;
     employeesData[index - 1].taskNumbers.accepted -= 1;
+    props.settaskdata({accepted:(employeesData[index - 1].taskNumbers.accepted),completed:employeesData[index - 1].taskNumbers.completed,failed:employeesData[index - 1].taskNumbers.failed,newTask:employeesData[index - 1].taskNumbers.newTask}) 
     localStorage.setItem('employees', JSON.stringify(employeesData));
   };
 

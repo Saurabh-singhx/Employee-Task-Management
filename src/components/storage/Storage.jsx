@@ -151,7 +151,7 @@ const employees = [
     email: "employee5@example.com",
     password: "123",
     taskNumbers: {
-      accepted: 1,
+      accepted: 0,
       newTask: 1,
       completed: 0,
       failed: 0,
