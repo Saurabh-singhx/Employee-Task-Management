@@ -1,18 +1,38 @@
-import React, { useContext, useState } from 'react'
-
+import React, { useState } from 'react'
 
 function ActiveTask(props) {
-  const employeesData = JSON.parse(localStorage.getItem("employees"))
+  const [checkClick, setCheckClick] = useState(false);
+  const [checkFail, setCheckFail] = useState(false);
+  const employeesData = JSON.parse(localStorage.getItem("employees"));
   const index = props.val.id;
-  console.log(props.data);
-  // console.log(employeesData[index-1]);
 
   const handleCompleteTask = (e) => {
+    setCheckClick(true);
     e.preventDefault();
-    employeesData[index - 1].taskNumbers.completed = 0;
+    employeesData[index - 1].tasks.forEach(element => {
+      if (element.taskTitle === props.data.taskTitle) {
+        element.completed = true;
+        element.accepted = false;
+      }
+    });
+    employeesData[index - 1].taskNumbers.completed += 1;
+    employeesData[index - 1].taskNumbers.active -= 1;
     localStorage.setItem('employees', JSON.stringify(employeesData));
-    window.location.reload();
-  }
+  };
+
+  const handleFailTask = (e) => {
+    setCheckFail(true);
+    e.preventDefault();
+    employeesData[index - 1].tasks.forEach(element => {
+      if (element.taskTitle === props.data.taskTitle) {
+        element.failed = true;
+        element.accepted = false;
+      }
+    });
+    employeesData[index - 1].taskNumbers.failed += 1;
+    employeesData[index - 1].taskNumbers.active -= 1;
+    localStorage.setItem('employees', JSON.stringify(employeesData));
+  };
 
   return (
     <div className='bg-yellow-400 w-[24%] rounded-lg gap-2 overflow-hidden flex flex-col shrink-0 justify-between h-96'>
@@ -26,17 +46,24 @@ function ActiveTask(props) {
           <p className='text-white'>{props.data.taskDescription}</p>
         </div>
       </div>
-      <div className='mt-8 p-8 flex justify-between'>
-        <button
-          onClick={handleCompleteTask}
-          className='py-2 px-4 bg-slate-600 border rounded-full text-white'>Completed</button>
-        <button className='py-2 px-4 bg-slate-600 border rounded-full text-white'>Mark Failed</button>
-
-      </div>
-
-
+      {
+        checkClick ? (
+          <div className='flex items-center justify-center p-4 text-lg text-gray-50 bg-lime-400'>Completed</div>
+        ) : checkFail ? (
+          <div className='flex items-center justify-center p-4 text-lg text-gray-50 bg-red-400'>Failed</div>
+        ) : (
+          <div className='mt-8 p-8 flex justify-between'>
+            <button
+              onClick={handleCompleteTask}
+              className='py-2 px-4 bg-slate-600 border rounded-full text-white'>Accept Task</button>
+            <button
+              onClick={handleFailTask}
+              className='py-2 px-4 bg-red-600 border rounded-full text-white'>Fail Task</button>
+          </div>
+        )
+      }
     </div>
-  )
+  );
 }
 
-export default ActiveTask
+export default ActiveTask;
