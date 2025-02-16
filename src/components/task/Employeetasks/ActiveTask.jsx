@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 function ActiveTask(props) {
-  console.log(props.settaskdata)
   const [checkClick, setCheckClick] = useState(false);
   const [checkFail, setCheckFail] = useState(false);
   const employeesData = JSON.parse(localStorage.getItem("employees"));
