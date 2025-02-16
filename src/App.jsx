@@ -8,7 +8,7 @@ import Authdashboard from './components/dashboard/Authdashboard'
 
 function App() {
   setLocalStorage();
-  const Authdata = useContext(AuthContext)
+  const Authdata = useContext(AuthContext);
   const [loggedinuserdata, setLoggedinuserdata] = useState(null)
   useEffect(()=>{
     

@@ -34,6 +34,8 @@ function Taskcreate() {
         if (employeeIndex !== -1) {
             // Add the new task to the corresponding employee
             data[employeeIndex].tasks.push(newTask);
+            data[employeeIndex].taskNumbers.newTask += 1;
+            // if(data[employeeIndex]) {
             localStorage.setItem('employees', JSON.stringify(data));
         } else {
             alert('Employee not found!');

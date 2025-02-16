@@ -5,15 +5,15 @@ const employees = [
     email: "employee1@example.com",
     password: "123",
     taskNumbers: {
-      accepted: 2, // Renamed from 'active'
-      newTask: 1,
+      accepted: 2,
+      newTask: 0,
       completed: 0,
       failed: 0,
     },
     tasks: [
       {
-        accepted: true, // Renamed from 'active'
-        newTask: false, // Since it's accepted, it can't be new
+        accepted: true,
+        newTask: false,
         completed: false,
         failed: false,
         taskTitle: "Prepare report",
@@ -22,8 +22,8 @@ const employees = [
         category: "Sales",
       },
       {
-        accepted: true, // Renamed from 'active'
-        newTask: false, // Since it's accepted, it can't be new
+        accepted: true,
+        newTask: false,
         completed: false,
         failed: false,
         taskTitle: "Follow up with client",
@@ -39,16 +39,16 @@ const employees = [
     email: "employee2@example.com",
     password: "123",
     taskNumbers: {
-      accepted: 0, // Renamed from 'active'
+      accepted: 0,
       newTask: 0,
       completed: 1,
       failed: 0,
     },
     tasks: [
       {
-        accepted: false, // Renamed from 'active'
+        accepted: false,
         newTask: false,
-        completed: true, // Completed task
+        completed: true,
         failed: false,
         taskTitle: "Client meeting",
         taskDescription: "Attend the meeting with the client.",
@@ -63,17 +63,17 @@ const employees = [
     email: "employee3@example.com",
     password: "123",
     taskNumbers: {
-      accepted: 0, // Renamed from 'active'
+      accepted: 0,
       newTask: 0,
       completed: 0,
       failed: 1,
     },
     tasks: [
       {
-        accepted: false, // Renamed from 'active'
+        accepted: false,
         newTask: false,
         completed: false,
-        failed: true, // Failed task
+        failed: true,
         taskTitle: "Update website",
         taskDescription: "Fix bugs on the company website.",
         taskDate: "2024-12-20",
@@ -87,15 +87,15 @@ const employees = [
     email: "employee4@example.com",
     password: "123",
     taskNumbers: {
-      accepted: 2, // Renamed from 'active'
+      accepted: 2,
       newTask: 1,
       completed: 3,
       failed: 0,
     },
     tasks: [
       {
-        accepted: true, // Renamed from 'active'
-        newTask: true, // Task is both new and accepted
+        accepted: true,
+        newTask: true,
         completed: false,
         failed: false,
         taskTitle: "Inventory check",
@@ -104,7 +104,7 @@ const employees = [
         category: "Logistics",
       },
       {
-        accepted: true, // Renamed from 'active'
+        accepted: true,
         newTask: false,
         completed: false,
         failed: false,
@@ -114,9 +114,9 @@ const employees = [
         category: "Logistics",
       },
       {
-        accepted: false, // Renamed from 'active'
+        accepted: false,
         newTask: false,
-        completed: true, // Completed task
+        completed: true,
         failed: false,
         taskTitle: "Stock restocking",
         taskDescription: "Restock the inventory for the new year.",
@@ -124,9 +124,9 @@ const employees = [
         category: "Logistics",
       },
       {
-        accepted: false, // Renamed from 'active'
+        accepted: false,
         newTask: false,
-        completed: true, // Completed task
+        completed: true,
         failed: false,
         taskTitle: "Order processing",
         taskDescription: "Process the customer orders from last week.",
@@ -134,9 +134,9 @@ const employees = [
         category: "Logistics",
       },
       {
-        accepted: false, // Renamed from 'active'
+        accepted: false,
         newTask: false,
-        completed: true, // Completed task
+        completed: true,
         failed: false,
         taskTitle: "Shipping orders",
         taskDescription: "Ship all completed orders to customers.",
@@ -151,15 +151,15 @@ const employees = [
     email: "employee5@example.com",
     password: "123",
     taskNumbers: {
-      accepted: 1, // Renamed from 'active'
+      accepted: 1,
       newTask: 1,
       completed: 0,
       failed: 0,
     },
     tasks: [
       {
-        accepted: true, // Renamed from 'active'
-        newTask: true, // Task is both new and accepted
+        accepted: true,
+        newTask: true,
         completed: false,
         failed: false,
         taskTitle: "Employee training",
@@ -170,6 +170,7 @@ const employees = [
     ],
   },
 ];
+
 
 const admin = [
   {

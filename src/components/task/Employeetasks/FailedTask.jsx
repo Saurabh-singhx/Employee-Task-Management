@@ -2,8 +2,8 @@ import React from 'react'
 
 function FailedTask({data}) {
   return (
-    <div className='bg-red-400 w-1/4 h-60 rounded-lg overflow-hidden shrink-0'>
-        <div className='flex items-center p-2 justify-between text-white font-semibold'>
+    <div className='bg-red-400 w-[24%] h-60 rounded-lg overflow-hidden shrink-0'>
+        <div className='flex items-center p-2 justify-between text-white font-semibold flex-col shrink-0 h-96'>
           <span className='px-1 bg-rose-400 rounded-lg'>{data.category}</span>
           <span>{data.taskDate}</span>
         </div>

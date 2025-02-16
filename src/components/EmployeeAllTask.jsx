@@ -12,7 +12,7 @@ export default function EmployeeAllTask({ data }) {
   // console.log(data)
 
   return (
-    <div id='taskbar' className='py-4 flex gap-4 overflow-x-auto px-8 w-full'>
+    <div id='taskbar' className='py-4 flex gap-5 overflow-x-auto px-8 w-full h-auto'>
       {data.tasks.map((elem, idx) => {
         if (elem.newTask) {
           return <NewTask key={idx} data={elem} val={data}/>
