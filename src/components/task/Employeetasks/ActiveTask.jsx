@@ -5,7 +5,6 @@ function ActiveTask(props) {
   const [checkFail, setCheckFail] = useState(false);
   const employeesData = JSON.parse(localStorage.getItem("employees"));
   const index = props.val.id;
-
   const handleCompleteTask = (e) => {
     setCheckClick(true);
     e.preventDefault();
@@ -16,7 +15,7 @@ function ActiveTask(props) {
       }
     });
     employeesData[index - 1].taskNumbers.completed += 1;
-    employeesData[index - 1].taskNumbers.active -= 1;
+    employeesData[index - 1].taskNumbers.accepted -= 1;
     localStorage.setItem('employees', JSON.stringify(employeesData));
   };
 
@@ -30,7 +29,7 @@ function ActiveTask(props) {
       }
     });
     employeesData[index - 1].taskNumbers.failed += 1;
-    employeesData[index - 1].taskNumbers.active -= 1;
+    employeesData[index - 1].taskNumbers.accepted -= 1;
     localStorage.setItem('employees', JSON.stringify(employeesData));
   };
 
