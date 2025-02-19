@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { AuthContext } from '../Context/Authprovider'
 
 function Aalltask() {
-    const Authdata = useContext(AuthContext)
+    const { userdata, setUserdata } = useContext(AuthContext);
     return (
         <div className='p-8 h-auto shrink-0'>
             <div className='bg-slate-700 flex justify-between h-14 rounded-md items-center py-2 px-8 mb-2'>
@@ -14,7 +14,7 @@ function Aalltask() {
             </div>
 
             <div className=' rounded-lg h-44 py-2'>
-                {Authdata.employees.map((e,idx) => {
+                {userdata.employees.map((e,idx) => {
                     return <div 
                     key={idx}
                     className='bg-slate-700 flex justify-between h-14 rounded-md items-center py-2 px-8 mb-2'>

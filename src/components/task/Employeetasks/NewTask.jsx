@@ -1,32 +1,28 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import { AuthContext } from '../../Context/Authprovider';
+import toast, { Toaster } from 'react-hot-toast';
 
 function NewTask(props) {
-
-  // console.log(data);
-  // console.log(elem);
+  const { userdata, setUserdata } = useContext(AuthContext);
   const [checkClick, setcheckClick] = useState(false)
-  const employeesData = JSON.parse(localStorage.getItem("employees"))
-  const index = props.val.id;
-  // console.log(props);
-  // console.log(employeesData[index - 1]);
-
+  
   const handleActiveTask = (e) => {
-    setcheckClick(true)
     e.preventDefault();
-    employeesData[index - 1].tasks.forEach(element => {
-      // console.log(element.taskTitle);
-      // console.log(props.data.taskTitle);
-      if (element.taskTitle === props.data.taskTitle) {
-        // console.log('task matched');
-        element.newTask = false;
-        element.accepted = true;
+    setcheckClick(true)
+    const taskid = props.taskId;
+
+    userdata.employees.forEach(element => {
+      if(element.id === props.value.id){
+        const s = userdata.employees.indexOf(element);
+        userdata.employees[s].taskNumbers.accepted += 1;
+        userdata.employees[s].taskNumbers.newTask -= 1;
+        userdata.employees[s].tasks[taskid].accepted = true;
+        userdata.employees[s].tasks[taskid].newTask = false;
+        setUserdata({...userdata});
       }
     });
-    employeesData[index - 1].taskNumbers.accepted += 1;
-    employeesData[index - 1].taskNumbers.newTask -= 1;
-    props.settaskdata({ accepted: (employeesData[index - 1].taskNumbers.accepted), completed: employeesData[index - 1].taskNumbers.completed, failed: employeesData[index - 1].taskNumbers.failed, newTask: employeesData[index - 1].taskNumbers.newTask })
-    localStorage.setItem('employees', JSON.stringify(employeesData));
-    // window.location.reload();
+    toast.success('Task Accepted Successfully');
+    
   }
   return (
     <div className='bg-sky-400 w-[24%] rounded-lg overflow-hidden shrink-0 flex flex-col justify-between h-96'>

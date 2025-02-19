@@ -1,38 +1,48 @@
 import React, { useState } from 'react'
+import { AuthContext } from '../../Context/Authprovider';
+import { useContext } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 
 function ActiveTask(props) {
+
+  const { userdata, setUserdata } = useContext(AuthContext);
+
   const [checkClick, setCheckClick] = useState(false);
   const [checkFail, setCheckFail] = useState(false);
-  const employeesData = JSON.parse(localStorage.getItem("employees"));
-  const index = props.val.id;
   const handleCompleteTask = (e) => {
-    setCheckClick(true);
     e.preventDefault();
-    employeesData[index - 1].tasks.forEach(element => {
-      if (element.taskTitle === props.data.taskTitle) {
-        element.completed = true;
-        element.accepted = false;
+    setCheckClick(true);
+    const taskid = props.taskId;
+    userdata.employees.forEach(element => {
+      if(element.id === props.value.id){
+        const s = userdata.employees.indexOf(element);
+        console.log(userdata.employees[s].taskNumbers);
+        userdata.employees[s].taskNumbers.completed += 1;
+        userdata.employees[s].taskNumbers.accepted -= 1;
+        userdata.employees[s].tasks[taskid].completed = true;
+        userdata.employees[s].tasks[taskid].accepted = false;
+        setUserdata({...userdata});
       }
     });
-    employeesData[index - 1].taskNumbers.completed += 1;
-    employeesData[index - 1].taskNumbers.accepted -= 1;
-    props.settaskdata({accepted:(employeesData[index - 1].taskNumbers.accepted),completed:employeesData[index - 1].taskNumbers.completed,failed:employeesData[index - 1].taskNumbers.failed,newTask:employeesData[index - 1].taskNumbers.newTask})
-    localStorage.setItem('employees', JSON.stringify(employeesData));
+    toast.success('Task Completed');
   };
 
   const handleFailTask = (e) => {
     setCheckFail(true);
     e.preventDefault();
-    employeesData[index - 1].tasks.forEach(element => {
-      if (element.taskTitle === props.data.taskTitle) {
-        element.failed = true;
-        element.accepted = false;
+    const taskid = props.taskId;
+    userdata.employees.forEach(element => {
+      if(element.id === props.value.id){
+        const s = userdata.employees.indexOf(element);
+        console.log(userdata.employees[s].taskNumbers);
+        userdata.employees[s].taskNumbers.failed += 1;
+        userdata.employees[s].taskNumbers.accepted -= 1;
+        userdata.employees[s].tasks[taskid].failed = true;
+        userdata.employees[s].tasks[taskid].accepted = false;
+        setUserdata({...userdata});
       }
     });
-    employeesData[index - 1].taskNumbers.failed += 1;
-    employeesData[index - 1].taskNumbers.accepted -= 1;
-    props.settaskdata({accepted:(employeesData[index - 1].taskNumbers.accepted),completed:employeesData[index - 1].taskNumbers.completed,failed:employeesData[index - 1].taskNumbers.failed,newTask:employeesData[index - 1].taskNumbers.newTask}) 
-    localStorage.setItem('employees', JSON.stringify(employeesData));
+    toast.error('Task Failed');
   };
 
   return (

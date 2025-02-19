@@ -182,7 +182,7 @@ const admin = [
 ];
 
 
-export const setLocalStorage = () => {
+export const setLocalStorage = (empo,admi) => {
   // Check if localStorage already has the data
   if (!localStorage.getItem("employees")) {
     localStorage.setItem("employees", JSON.stringify(employees));
@@ -190,6 +190,13 @@ export const setLocalStorage = () => {
 
   if (!localStorage.getItem("admin")) {
     localStorage.setItem("admin", JSON.stringify(admin));
+  }
+
+  if(localStorage.getItem("employees") && localStorage.getItem("admin")) {
+    if(empo && admi) {
+      localStorage.setItem("employees", JSON.stringify(empo));
+      localStorage.setItem("admin", JSON.stringify(admi));
+    }
   }
 };
 

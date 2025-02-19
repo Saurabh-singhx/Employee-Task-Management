@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../Context/Authprovider';
+import toast, { Toaster } from 'react-hot-toast';
 function Taskcreate() {
     const [taskTitle, setTaskTitle] = useState('');
     const [taskDate, setTaskDate] = useState('');
@@ -7,12 +8,14 @@ function Taskcreate() {
     const [category, settaskCategory] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
 
+        toast
+    const { userdata, setUserdata } = useContext(AuthContext); 
     // Handle task creation
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (!taskTitle || !taskDate || !asignTo || !category || !taskDescription) {
-            alert("Please fill all the fields.");
+            toast.error('All fields are required!');
             return;
         }
 
@@ -36,7 +39,10 @@ function Taskcreate() {
             data[employeeIndex].tasks.push(newTask);
             data[employeeIndex].taskNumbers.newTask += 1;
             // if(data[employeeIndex]) {
-            localStorage.setItem('employees', JSON.stringify(data));
+            userdata.employees[employeeIndex].tasks.push(newTask);
+            userdata.employees[employeeIndex].taskNumbers.newTask += 1;
+            // localStorage.setItem('employees', JSON.stringify(data));
+            setUserdata({...userdata});
         } else {
             alert('Employee not found!');
         }
@@ -47,6 +53,7 @@ function Taskcreate() {
         setasignTo('');
         settaskCategory('');
         setTaskDescription('');
+        toast.success('Task created successfully!');
     };
 
     return (
@@ -107,6 +114,7 @@ function Taskcreate() {
                     <button className='mt-6 bg-lime-400 h-10 rounded-md text-white font-semibold text-lg hover:bg-lime-500 transition duration-200'>
                         Create Task
                     </button>
+                    <Toaster/>
                 </div>
             </form>
         </div>
