@@ -11,10 +11,9 @@ function App() {
   const { userdata, setUserdata } = useContext(AuthContext); // Correct context access
   const [user, setUser] = useState(null);
   const [loggedinuserdata, setLoggedinuserdata] = useState(null);
-  
+  const employeenew = localStorage.getItem('employees');
+
   useEffect(() => {
-     // Correct function call
-     
     const loggedinuser = localStorage.getItem('loggedinuser');
     if (loggedinuser) {
       const userData = JSON.parse(loggedinuser);
@@ -49,7 +48,7 @@ function App() {
       ) : user === 'employee' ? (
         <Employee data={loggedinuserdata} changeUser={setUser} />
       ) : null}
-      <Toaster/>
+      <Toaster />
     </>
   );
 }

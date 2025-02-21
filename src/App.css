@@ -1,3 +1,37 @@
 /* @tailwind base;
 @tailwind components;
 @tailwind utilities; */
+
+@media screen and (max-width: 600px) {
+    
+    .taskbar{
+        /* display: none; */
+        /* background: #000; */
+        /* flex-wrap: wrap; */
+        flex-direction: column;
+        /* width: 200px; */
+    }
+    .tasks{
+        width: 100%;
+    }
+    .Tasknumbers{
+        /* width: 4rem; */
+        /* height: 9em; */
+        font-size: 10px;
+        
+    }
+    
+}
+@media screen and (max-width: 805px) {
+    
+    .form{
+        flex-direction: column;
+    }
+    .Inputw{
+        width: 100%;
+    }
+    .Text{
+        font-size: 0.7rem;
+        
+    }
+}

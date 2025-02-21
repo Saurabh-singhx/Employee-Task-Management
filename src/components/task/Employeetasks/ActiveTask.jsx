@@ -6,7 +6,10 @@ import toast, { Toaster } from 'react-hot-toast';
 function ActiveTask(props) {
 
   const { userdata, setUserdata } = useContext(AuthContext);
-
+  const employee = JSON.parse(localStorage.getItem('employees'));
+  // console.log(employee);
+  // console.log(userdata.employees);
+ 
   const [checkClick, setCheckClick] = useState(false);
   const [checkFail, setCheckFail] = useState(false);
   const handleCompleteTask = (e) => {
@@ -16,7 +19,6 @@ function ActiveTask(props) {
     userdata.employees.forEach(element => {
       if(element.id === props.value.id){
         const s = userdata.employees.indexOf(element);
-        console.log(userdata.employees[s].taskNumbers);
         userdata.employees[s].taskNumbers.completed += 1;
         userdata.employees[s].taskNumbers.accepted -= 1;
         userdata.employees[s].tasks[taskid].completed = true;
@@ -34,7 +36,6 @@ function ActiveTask(props) {
     userdata.employees.forEach(element => {
       if(element.id === props.value.id){
         const s = userdata.employees.indexOf(element);
-        console.log(userdata.employees[s].taskNumbers);
         userdata.employees[s].taskNumbers.failed += 1;
         userdata.employees[s].taskNumbers.accepted -= 1;
         userdata.employees[s].tasks[taskid].failed = true;
@@ -46,7 +47,7 @@ function ActiveTask(props) {
   };
 
   return (
-    <div className='bg-yellow-400 w-[24%] rounded-lg gap-2 overflow-hidden flex flex-col shrink-0 justify-between h-96'>
+    <div className='bg-yellow-400 w-[24%] rounded-lg gap-2 overflow-hidden flex flex-col shrink-0 justify-between h-96 tasks'>
       <div>
         <div className='flex items-center p-2 justify-between text-white font-semibold'>
           <span className='px-1 bg-rose-400 rounded-lg'>{props.data.category}</span>

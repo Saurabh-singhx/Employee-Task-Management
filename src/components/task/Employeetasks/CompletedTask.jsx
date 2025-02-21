@@ -2,7 +2,7 @@ import React from 'react'
 
 function CompletedTask({data}) {
   return (
-    <div className='bg-green-400 w-[24%] rounded-lg overflow-hidden shrink-0 flex flex-col justify-between h-96'>
+    <div className='bg-green-400 w-[24%] rounded-lg overflow-hidden shrink-0 flex flex-col justify-between h-96 tasks'>
     <div>
     <div className='flex items-center p-2 justify-between text-white font-semibold'>
       <span className='px-1 bg-rose-400 rounded-lg'>{data.category}</span>

@@ -25,7 +25,7 @@ function NewTask(props) {
     
   }
   return (
-    <div className='bg-sky-400 w-[24%] rounded-lg overflow-hidden shrink-0 flex flex-col justify-between h-96'>
+    <div className='bg-sky-400 w-[24%] rounded-lg overflow-hidden shrink-0 flex flex-col justify-between h-96 tasks'>
       <div>
         <div className='flex items-center p-2 justify-between text-white font-semibold'>
           <span className='px-1 bg-rose-400 rounded-lg'>{props.data.category}</span>

@@ -6,7 +6,7 @@ import EmployeeAllTask from '../EmployeeAllTask'
 function Employee({data,changeUser}) {
 
   return (
-     <div className='overflow-x-auto w-full'>
+     <div className='flex flex-col items-center'>
         <Header changeUser={changeUser} data={data}/>
         <Employeeui Taskdata={data}/>
         <EmployeeAllTask data={data} />

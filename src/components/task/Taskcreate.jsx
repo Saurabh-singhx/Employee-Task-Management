@@ -60,16 +60,16 @@ function Taskcreate() {
         <div className='bg-slate-800 w-full px-8 py-4 '>
             <form
                 onSubmit={handleSubmit}
-                className='flex justify-between bg-slate-700 px-2 rounded py-4'>
-                <div className='flex flex-col gap-8 mt-4 px-4 w-2/3'>
+                className='flex justify-between bg-slate-700 px-2 rounded py-4 form'>
+                <div className='flex flex-col gap-8 mt-4 px-4 w-2/3 Inputw'>
                     <div className='w-full'>
-                        <h3 className='text-white font-semibold text-lg'>Task title</h3>
+                        <h3 className='text-white font-semibold text-lg '>Task title</h3>
                         <input 
                             value={taskTitle}
                             onChange={(e) => setTaskTitle(e.target.value)}
                             type="text" 
                             placeholder='Task title' 
-                            className='mt-2 w-1/2 h-8 rounded-md px-3 bg-transparent text-white text-lg border focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 border-green-400' 
+                            className='mt-2 w-1/2 h-8 rounded-md px-3 bg-transparent text-white text-lg border focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 border-green-400 Inputw' 
                         />
                     </div>
                     <div>
@@ -78,7 +78,8 @@ function Taskcreate() {
                             value={taskDate}
                             onChange={(e) => setTaskDate(e.target.value)}
                             type="date" 
-                            className='mt-2 w-1/2 h-8 rounded-md px-3 bg-transparent text-white text-lg border focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 border-green-400' 
+                            placeholder='Enter Date'
+                            className='mt-2 w-1/2 h-8 rounded-md px-3 bg-transparent text-white text-lg border focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 border-green-400 Inputw' 
                         />
                     </div>
                     <div>
@@ -88,7 +89,7 @@ function Taskcreate() {
                              onChange={(e) => setasignTo(e.target.value)} 
                              type="text" 
                              placeholder='Employee Name' 
-                             className='mt-2 w-1/2 h-8 rounded-md px-3 bg-transparent text-white text-lg border focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 border-green-400' 
+                             className='mt-2 w-1/2 h-8 rounded-md px-3 bg-transparent text-white text-lg border focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 border-green-400 Inputw' 
                         />
                     </div>
                     <div>
@@ -98,7 +99,7 @@ function Taskcreate() {
                             onChange={(e) => settaskCategory(e.target.value)}
                             type="text" 
                             placeholder='Design, Dev, etc.' 
-                            className='mt-2 w-1/2 h-8 rounded-md px-3 bg-transparent text-white text-lg border focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 border-green-400' 
+                            className='mt-2 w-1/2 h-8 rounded-md px-3 bg-transparent text-white text-lg border focus:outline-none focus:ring-2 focus:ring-green-400 transition duration-300 border-green-400 Inputw' 
                         />
                     </div>
                 </div>
