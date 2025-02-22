@@ -7,8 +7,6 @@ function Taskcreate() {
     const [asignTo, setasignTo] = useState('');
     const [category, settaskCategory] = useState('');
     const [taskDescription, setTaskDescription] = useState('');
-
-        toast
     const { userdata, setUserdata } = useContext(AuthContext); 
     // Handle task creation
     const handleSubmit = (e) => {
@@ -31,16 +29,15 @@ function Taskcreate() {
             completed: false,
         };
 
-        const data = JSON.parse(localStorage.getItem('employees')) || [];
+        const data = userdata.employees || [];
         const employeeIndex = data.findIndex(employee => employee.name === asignTo);
 
         if (employeeIndex !== -1) {
             // Add the new task to the corresponding employee
             data[employeeIndex].tasks.push(newTask);
             data[employeeIndex].taskNumbers.newTask += 1;
-            // if(data[employeeIndex]) {
-            userdata.employees[employeeIndex].tasks.push(newTask);
-            userdata.employees[employeeIndex].taskNumbers.newTask += 1;
+            // userdata.employees[employeeIndex].tasks.push(newTask);
+            // userdata.employees[employeeIndex].taskNumbers.newTask = data[employeeIndex].taskNumbers.newTask;
             // localStorage.setItem('employees', JSON.stringify(data));
             setUserdata({...userdata});
         } else {

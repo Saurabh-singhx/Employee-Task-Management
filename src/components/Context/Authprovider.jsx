@@ -9,8 +9,9 @@ const Authprovider = ({ children }) => {
   useEffect(() => {
     try {
       setLocalStorage();
-      const [employees, admin] = getLocalStorage();
-      setUserdata({ employees, admin });
+      const [employees, admin,loggedinuser] = getLocalStorage();
+      setUserdata({ employees, admin,loggedinuser});
+      // console.log(loggedinuser)
     } catch (error) {
       console.error("Error fetching data from local storage:", error);
     }
@@ -19,12 +20,14 @@ const Authprovider = ({ children }) => {
   useEffect(() => {
     if (userdata.employees.length > 0) {
       localStorage.setItem("employees", JSON.stringify(userdata.employees));
-       if((localStorage.getItem("loggedinuser") && JSON.parse(localStorage.getItem("loggedinuser")).role === "employee")){
-        const loggedinuser = JSON.parse(localStorage.getItem("loggedinuser"));
-        const employee = userdata.employees[[loggedinuser.data.id]-1];
+      localStorage.setItem("loggedinuser", JSON.stringify(userdata.loggedinuser));
+      // localStorage.setItem("loggedinuser", JSON.stringify(userdata.loggedinuser));
+      //  if((localStorage.getItem("loggedinuser") && JSON.parse(localStorage.getItem("loggedinuser")).role === "employee")){
+      //   const loggedinuser = JSON.parse(localStorage.getItem("loggedinuser"));
+      //   const employee = userdata.employees[[loggedinuser.data.id]-1];
 
-        localStorage.setItem("loggedinuser", JSON.stringify({ role: "employee", data: employee }));
-       }
+      //   localStorage.setItem("loggedinuser", JSON.stringify({ role: "employee", data: employee }));
+      //  }
     }
 
   }, [userdata]);

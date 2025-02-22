@@ -5,9 +5,11 @@ import App from './App.jsx';
 import Authprovider from './components/Context/Authprovider.jsx';
 
 createRoot(document.getElementById('root')).render(
+
   <StrictMode>
     <Authprovider>
       <App />
     </Authprovider>
   </StrictMode>
+
 );

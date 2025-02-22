@@ -14,10 +14,14 @@ function NewTask(props) {
     userdata.employees.forEach(element => {
       if(element.id === props.value.id){
         const s = userdata.employees.indexOf(element);
+        userdata.loggedinuser.data.tasks[taskid].accepted = true;
+        userdata.loggedinuser.data.tasks[taskid].newTask = false;
         userdata.employees[s].taskNumbers.accepted += 1;
         userdata.employees[s].taskNumbers.newTask -= 1;
         userdata.employees[s].tasks[taskid].accepted = true;
         userdata.employees[s].tasks[taskid].newTask = false;
+        userdata.loggedinuser.data.taskNumbers.newTask = userdata.employees[s].taskNumbers.newTask;
+        userdata.loggedinuser.data.taskNumbers.accepted = userdata.employees[s].taskNumbers.accepted;
         setUserdata({...userdata});
       }
     });

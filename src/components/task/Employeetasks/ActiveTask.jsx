@@ -9,9 +9,10 @@ function ActiveTask(props) {
   const employee = JSON.parse(localStorage.getItem('employees'));
   // console.log(employee);
   // console.log(userdata.employees);
- 
+  // console.log(props.setLogg);
   const [checkClick, setCheckClick] = useState(false);
   const [checkFail, setCheckFail] = useState(false);
+  // console.log(userdata.loggedinuser);
   const handleCompleteTask = (e) => {
     e.preventDefault();
     setCheckClick(true);
@@ -19,10 +20,15 @@ function ActiveTask(props) {
     userdata.employees.forEach(element => {
       if(element.id === props.value.id){
         const s = userdata.employees.indexOf(element);
+        
+        userdata.loggedinuser.data.tasks[taskid].completed = true;
+        userdata.loggedinuser.data.tasks[taskid].accepted = false;
         userdata.employees[s].taskNumbers.completed += 1;
         userdata.employees[s].taskNumbers.accepted -= 1;
         userdata.employees[s].tasks[taskid].completed = true;
         userdata.employees[s].tasks[taskid].accepted = false;
+        userdata.loggedinuser.data.taskNumbers.completed = userdata.employees[s].taskNumbers.completed;
+        userdata.loggedinuser.data.taskNumbers.accepted = userdata.employees[s].taskNumbers.accepted;
         setUserdata({...userdata});
       }
     });
@@ -36,10 +42,14 @@ function ActiveTask(props) {
     userdata.employees.forEach(element => {
       if(element.id === props.value.id){
         const s = userdata.employees.indexOf(element);
+        userdata.loggedinuser.data.tasks[taskid].failed = true;
+        userdata.loggedinuser.data.tasks[taskid].accepted = false;
         userdata.employees[s].taskNumbers.failed += 1;
         userdata.employees[s].taskNumbers.accepted -= 1;
         userdata.employees[s].tasks[taskid].failed = true;
         userdata.employees[s].tasks[taskid].accepted = false;
+        userdata.loggedinuser.data.taskNumbers.failed = userdata.employees[s].taskNumbers.failed;
+        userdata.loggedinuser.data.taskNumbers.accepted = userdata.employees[s].taskNumbers.accepted;
         setUserdata({...userdata});
       }
     });

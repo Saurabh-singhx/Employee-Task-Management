@@ -191,13 +191,17 @@ export const setLocalStorage = () => {
   if (!localStorage.getItem("admin")) {
     localStorage.setItem("admin", JSON.stringify(admin));
   }
+  if (!localStorage.getItem("loggedinuser")) {
+    localStorage.setItem("loggedinuser",null);
+  }
 };
 
 export const getLocalStorage = () => {
   try {
     const employeesData = JSON.parse(localStorage.getItem("employees")) || [];
     const adminData = JSON.parse(localStorage.getItem("admin")) || [];
-    return [employeesData, adminData]; // Return as an array for consistent destructuring
+    const loggedinuser = JSON.parse(localStorage.getItem("loggedinuser"))||[];
+    return [employeesData, adminData,loggedinuser]; // Return as an array for consistent destructuring
   } catch (error) {
     console.error("Error reading from localStorage:", error);
     return [[], []]; // Return empty arrays in case of an error
