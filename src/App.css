@@ -15,10 +15,14 @@
         width: 100%;
     }
     .Tasknumbers{
-        /* width: 4rem; */
+        width: 15%;
         /* height: 9em; */
-        font-size: 10px;
-        
+        font-size: 15px;
+        padding: 2%;
+    }
+    .newTask{
+        font-size: 70%;
+        /* font-weight: 200; */
     }
     
 }
