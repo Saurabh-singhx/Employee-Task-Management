@@ -21,13 +21,6 @@ const Authprovider = ({ children }) => {
     if (userdata.employees.length > 0) {
       localStorage.setItem("employees", JSON.stringify(userdata.employees));
       localStorage.setItem("loggedinuser", JSON.stringify(userdata.loggedinuser));
-      // localStorage.setItem("loggedinuser", JSON.stringify(userdata.loggedinuser));
-      //  if((localStorage.getItem("loggedinuser") && JSON.parse(localStorage.getItem("loggedinuser")).role === "employee")){
-      //   const loggedinuser = JSON.parse(localStorage.getItem("loggedinuser"));
-      //   const employee = userdata.employees[[loggedinuser.data.id]-1];
-
-      //   localStorage.setItem("loggedinuser", JSON.stringify({ role: "employee", data: employee }));
-      //  }
     }
 
   }, [userdata]);

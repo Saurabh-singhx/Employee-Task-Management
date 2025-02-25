@@ -57,7 +57,7 @@ function App() {
       {user === 'admin' ? (
         <Authdashboard changeUser={setUser} data={loggedinuserdata}/>
       ) : user === 'employee' ? (
-        <Employee data={loggedinuserdata} changeUser={setUser} setLog={setLoggedinuserdata}/>
+        <Employee data={loggedinuserdata} changeUser={setUser}/>
       ) : null}
       <Toaster />
     </>

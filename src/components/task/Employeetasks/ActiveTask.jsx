@@ -77,7 +77,7 @@ function ActiveTask(props) {
           <div className='mt-8 p-8 flex justify-between'>
             <button
               onClick={handleCompleteTask}
-              className='py-2 px-4 bg-slate-600 border rounded-full text-white'>Complete Task</button>
+              className='py-2 px-4 bg-green-400 border rounded-full text-white'>Complete Task</button>
             <button
               onClick={handleFailTask}
               className='py-2 px-4 bg-red-600 border rounded-full text-white'>Fail Task</button>

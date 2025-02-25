@@ -87,14 +87,14 @@ const employees = [
     email: "employee4@example.com",
     password: "123",
     taskNumbers: {
-      accepted: 2,
+      accepted: 1,
       newTask: 1,
       completed: 3,
       failed: 0,
     },
     tasks: [
       {
-        accepted: true,
+        accepted: false,
         newTask: true,
         completed: false,
         failed: false,
@@ -158,7 +158,7 @@ const employees = [
     },
     tasks: [
       {
-        accepted: true,
+        accepted: false,
         newTask: true,
         completed: false,
         failed: false,
